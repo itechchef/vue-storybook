@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import MyButton from './Button.vue';
+
+<Meta title="Buttons/Button" component={MyButton} />
+
+export const Template = (args, { argTypes }) => ({
+  components: { MyButton },
+  props: Object.keys(argTypes),
+  template: '<MyButton v-bind="$props" />'
+});
+
+# Button
+
+## Overview
+Buttons allow users take actions with a single click. They should be clear indications that they triggering an action, buttons should be easy to find among other UI.
+
+<Canvas>
+  <Story
+    name="Overview"
+    args={{label: "Button"}}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
