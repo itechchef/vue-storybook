@@ -1,0 +1,130 @@
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import Alert from "./Alert.vue";
+
+<Meta
+  title="Feedback/Alert"
+  component={Alert}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { Alert },
+  props: Object.keys(argTypes),
+  template: `<Alert v-bind="$props">Successfully uploaded</Alert>`,
+});
+
+export const ColorsTemplate = (args, { argTypes }) => ({
+  components: { Alert },
+  template: `
+    <div>
+      <Alert color="success">
+        Successfully uploaded
+      </Alert>
+      <Alert color="danger">
+        Danger alert! Change a few things up and try submitting again.
+      </Alert>
+      <Alert color="info">
+        Important Note! Change a few things up and try submitting again.
+      </Alert>
+      <Alert color="warning">
+        Important Note! Change a few things up and try submitting again.
+      </Alert>
+      <Alert color="dark">
+        Important Note! Change a few things up and try submitting again.
+      </Alert>
+    </div>
+  `,
+});
+
+export const DismissableTemplate = (args, { argTypes }) => ({
+  components: { Alert },
+  template: `
+    <div>
+      <Alert :dismissable="true" color="success">
+        Successfully uploaded
+      </Alert>
+      <Alert :dismissable="true" color="danger">
+        Danger alert! Change a few things up and try submitting again.
+      </Alert>
+      <Alert :dismissable="true" color="info">
+        Important Note! Change a few things up and try submitting again.
+      </Alert>
+      <Alert :dismissable="true" color="warning">
+        Important Note! Change a few things up and try submitting again.
+      </Alert>
+      <Alert :dismissable="true" color="dark">
+        Important Note! Change a few things up and try submitting again.
+      </Alert>
+    </div>
+  `,
+});
+
+export const AdditionalContentTemplate = (args, { argTypes }) => ({
+  components: { Alert },
+  template: `
+    <div>
+      <Alert :more-button="true" color="success">
+        <span class="text-base font-inter font-semibold">Well done !</span><br />
+        Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+      </Alert>
+      <Alert :more-button="true" color="danger">
+        <span class="text-base font-inter font-semibold">Oh snap !</span><br />
+        Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+      </Alert>
+      <Alert :more-button="true" color="info">
+        <span class="text-base font-inter font-semibold">Oh snap !</span><br />
+        Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+      </Alert>
+      <Alert :more-button="true" color="warning">
+        <span class="text-base font-inter font-semibold">Oh snap !</span><br />
+        Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+      </Alert>
+      <Alert :more-button="true" color="dark">
+        <span class="text-base font-inter font-semibold">Oh snap !</span><br />
+        Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+      </Alert>
+    </div>
+  `,
+});
+
+# Alert
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+The alert provide information to users such as success or error messages, but also highlighted information complementing the normal flow of paragraphs and headers on a page.
+
+<Canvas>
+  <Story name="Overview">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
+
+### Colors
+<Canvas>
+  <Story name="Colors">
+    {ColorsTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Dismissable
+<Canvas>
+  <Story name="Dismissable">
+    {DismissableTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Additional Content
+<Canvas>
+  <Story name="Additional Content">
+    {AdditionalContentTemplate.bind({})}
+  </Story>
+</Canvas>
