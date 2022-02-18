@@ -1,24 +1,168 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs";
-import MyButton from './Button.vue';
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import Button from "./Button.vue";
 
-<Meta title="Buttons/Button" component={MyButton} />
+<Meta
+  title="Buttons/Button"
+  component={Button}
+  argTypes={{ click: { action: "clicked" } }}
+/>
 
 export const Template = (args, { argTypes }) => ({
-  components: { MyButton },
+  components: { Button },
   props: Object.keys(argTypes),
-  template: '<MyButton v-bind="$props" />'
+  template: `<Button v-bind="$props" v-on:click="click" />`,
+});
+
+export const ColorsTemplate = (args, { argTypes }) => ({
+  components: { Button },
+  template: `
+    <div>
+      <Button className="m-1" color="primary">Primary</Button>
+      <Button className="m-1" color="secondary">Secondary</Button>
+      <Button className="m-1" color="white">White</Button>
+      <Button className="m-1" color="dark">Dark</Button>
+      <Button className="m-1" color="success">Green</Button>
+      <Button className="m-1" color="danger">Red</Button>
+      <Button className="m-1" color="warning">Yellow</Button>
+      <Button className="m-1" color="pink">Pink</Button>
+      <Button className="m-1" color="teal">Teal</Button>
+      <Button className="m-1" color="indigo">Indigo</Button>
+      <Button className="m-1" color="purple">Purple</Button>
+    </div>
+  `,
+});
+
+export const OutlinedTemplate = (args, { argTypes }) => ({
+  components: { Button },
+  template: `
+    <div>
+      <Button className="m-1" outlined color="primary">Primary</Button>
+      <Button className="m-1" outlined color="secondary">Secondary</Button>
+      <Button className="m-1" outlined color="white">White</Button>
+      <Button className="m-1" outlined color="dark">Dark</Button>
+      <Button className="m-1" outlined color="success">Green</Button>
+      <Button className="m-1" outlined color="danger">Red</Button>
+      <Button className="m-1" outlined color="warning">Yellow</Button>
+      <Button className="m-1" outlined color="pink">Pink</Button>
+      <Button className="m-1" outlined color="teal">Teal</Button>
+      <Button className="m-1" outlined color="indigo">Indigo</Button>
+      <Button className="m-1" outlined color="purple">Purple</Button>
+    </div>
+  `,
+});
+
+
+export const PillsTemplate = (args, { argTypes }) => ({
+  components: { Button },
+  template: `
+    <div>
+      <Button className="m-1" pills color="primary">Primary</Button>
+      <Button className="m-1" pills color="secondary">Secondary</Button>
+      <Button className="m-1" pills color="white">White</Button>
+      <Button className="m-1" pills color="dark">Dark</Button>
+      <Button className="m-1" pills color="success">Green</Button>
+      <Button className="m-1" pills color="danger">Red</Button>
+      <Button className="m-1" pills color="warning">Yellow</Button>
+      <Button className="m-1" pills color="pink">Pink</Button>
+      <Button className="m-1" pills color="teal">Teal</Button>
+      <Button className="m-1" pills color="indigo">Indigo</Button>
+      <Button className="m-1" pills color="purple">Purple</Button>
+    </div>
+  `,
+});
+
+export const SizesTemplate = (args, { argTypes }) => ({
+  components: { Button },
+  template: `
+    <div>
+      <Button className="m-1" size="extra-small">Extra Small</Button>
+      <Button className="m-1" size="small">Small</Button>
+      <Button className="m-1" size="medium">Medium</Button>
+      <Button className="m-1" size="large">Large</Button>
+      <Button className="m-1" size="extra-large">Extra Large</Button>
+    </div>
+  `,
+});
+
+export const DisabledTemplate = (args, { argTypes }) => ({
+  components: { Button },
+  template: `
+    <div>
+      <Button className="m-1" disabled color="primary">Primary</Button>
+      <Button className="m-1" disabled color="secondary">Secondary</Button>
+      <Button className="m-1" disabled color="white">White</Button>
+      <Button className="m-1" disabled color="dark">Dark</Button>
+      <Button className="m-1" disabled color="success">Green</Button>
+      <Button className="m-1" disabled color="danger">Red</Button>
+      <Button className="m-1" disabled color="warning">Yellow</Button>
+      <Button className="m-1" disabled color="pink">Pink</Button>
+      <Button className="m-1" disabled color="teal">Teal</Button>
+      <Button className="m-1" disabled color="indigo">Indigo</Button>
+      <Button className="m-1" disabled color="purple">Purple</Button>
+    </div>
+  `,
 });
 
 # Button
 
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+
 ## Overview
+
 Buttons allow users take actions with a single click. They should be clear indications that they triggering an action, buttons should be easy to find among other UI.
 
 <Canvas>
-  <Story
-    name="Overview"
-    args={{label: "Button"}}
-  >
+  <Story name="Overview" args={{ label: "Button" }}>
     {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Usage
+- Buttons may contain icon, on the left or the right side
+- Use 8 px spacing between buttons
+- Replace text with a loader if action is submitted, but still processing",
+- Button width is set by it’s content, avoid changing it width",
+- Use only one primary button, and any remaining calls to action should be represented as lower emphasis buttons"
+
+## Variants
+
+### Colors
+<Canvas>
+  <Story name="Colors">
+    {ColorsTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Outlined
+<Canvas>
+  <Story name="Outlined">
+    {OutlinedTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Pills
+<Canvas>
+  <Story name="Pills">
+    {PillsTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Sizes
+<Canvas>
+  <Story name="Sizes">
+    {SizesTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Disabled
+<Canvas>
+  <Story name="Disabled">
+    {DisabledTemplate.bind({})}
   </Story>
 </Canvas>
