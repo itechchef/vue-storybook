@@ -1,0 +1,95 @@
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import Input from "./Input.vue";
+
+<Meta
+  title="Inputs/Input"
+  component={Input}
+  argTypes={{
+    state: {
+      control: {
+        type: "select",
+        options: [
+          "",
+          "success",
+          "error",
+        ],
+      },
+    },
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { Input },
+  props: Object.keys(argTypes),
+  template: `<Input v-bind="$props" />`,
+});
+
+export const SizesTemplate = (args, { argTypes }) => ({
+  components: { Input },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="flex gap-4">
+      <Input v-bind="$props" size="small" placeholder="Small input" />
+      <Input v-bind="$props" size="medium" placeholder="Medium input" />
+      <Input v-bind="$props" size="large" placeholder="Large input" />
+    </div>
+  `,
+});
+
+export const EmailTemplate = (args, { argTypes }) => ({
+  components: { Input },
+  props: Object.keys(argTypes),
+  template: `<Input v-bind="$props" type="email" label="Your email" icon-name="mail" placeholder="name@example.com" />`,
+});
+
+export const StatesTemplate = (args, { argTypes }) => ({
+  components: { Input },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      <Input v-bind="$props" state="success" description="Well done! Some success message!" />
+      <Input v-bind="$props" state="error" description="Oh snape! There was an error." />
+    </div>
+  `,
+});
+
+# Input
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+<Canvas>
+  <Story name="Overview">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
+
+### Sizes
+<Canvas>
+  <Story name="Sizes">
+    {SizesTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Email
+<Canvas>
+  <Story name="Email">
+    {EmailTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### States
+<Canvas>
+  <Story name="States">
+    {StatesTemplate.bind({})}
+  </Story>
+</Canvas>
