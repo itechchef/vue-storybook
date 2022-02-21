@@ -1,0 +1,102 @@
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import Checkbox from "./Checkbox.vue";
+
+<Meta
+  title="Inputs/Checkbox"
+  component={Checkbox}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { Checkbox },
+  props: Object.keys(argTypes),
+  template: `<Checkbox v-bind="$props" />`,
+});
+
+export const RegularTemplate = (args, { argTypes }) => ({
+  components: { Checkbox },
+  props: Object.keys(argTypes),
+  mounted() {
+    document.getElementById("focus").focus();
+  },
+  template: `
+    <div class="flex justify-around">
+      <Checkbox v-bind="$props" />
+      <Checkbox v-bind="$props" :checked="true" />
+      <Checkbox v-bind="$props" id="focus" :checked="true" />
+    </div>
+  `,
+});
+
+export const LabelTemplate = (args, { argTypes }) => ({
+  components: { Checkbox },
+  props: Object.keys(argTypes),
+  mounted() {
+    document.getElementById("focus-label").focus();
+  },
+  template: `
+    <div class="flex justify-around">
+      <Checkbox v-bind="$props" label="Unchecked and label" />
+      <Checkbox v-bind="$props" :checked="true" label="Checked and label" />
+      <Checkbox v-bind="$props" id="focus-label" :checked="true" label="Focus and label" />
+    </div>
+  `,
+});
+
+export const RoundedTemplate = (args, { argTypes }) => ({
+  components: { Checkbox },
+  props: Object.keys(argTypes),
+  mounted() {
+    document.getElementById("focus-round").focus();
+  },
+  template: `
+    <div class="flex justify-around">
+      <Checkbox v-bind="$props" :rounded="true" label="Unchecked and label" />
+      <Checkbox v-bind="$props" :rounded="true" :checked="true" label="Checked and label" />
+      <Checkbox v-bind="$props" id="focus-round" :rounded="true" :checked="true" label="Focus and label" />
+    </div>
+  `,
+});
+
+# Checkbox
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+<Canvas>
+  <Story name="Overview">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
+
+### Regular
+
+<Canvas>
+  <Story name="Regular">
+    {RegularTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Label
+
+<Canvas>
+  <Story name="Label">
+    {LabelTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Rounded
+
+<Canvas>
+  <Story name="Rounded">
+    {RoundedTemplate.bind({})}
+  </Story>
+</Canvas>
