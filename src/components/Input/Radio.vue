@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <label class="inline-block pl-6 relative cursor-pointer">
-      <input :id="id" :aria-describedby="id" :checked="checked" @input="onInput" type="checkbox" class="input" />
-      <span :class="markClass">
-        <svg class="mark-icon" fill="currentColor" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="6"/></svg>
-      </span>
-      <span>{{ label }}</span>
-    </label>
-  </div>
+  <label :for="id" class="inline-block pl-6 relative cursor-pointer">
+    <input :id="id" :aria-describedby="id" :checked="checked" @input="onInput" :disabled="disabled" :readonly="readonly" type="checkbox" class="input" />
+    <span :class="markClass">
+      <svg class="mark-icon" fill="currentColor" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="6"/></svg>
+    </span>
+    <span :class="labelClass">{{ label }}</span>
+  </label>
 </template>
 
 <script>
@@ -61,6 +59,7 @@ export default {
     markClass() {
       let classes = {
         "mark w-4 h-4": true,
+        "cursor-not-allowed": this.disabled || this.readonly,
       }
 
       if (typeof this.className === "string") {
@@ -71,14 +70,21 @@ export default {
 
       return classes;
     },
+    labelClass() {
+      return {
+        "cursor-not-allowed": this.disabled || this.readonly,
+      }
+    }
   },
 
   methods: {
     onInput(e) {
-      if (e.target.checked) {
-        this.$emit("input", this.checkedValue);
-      } else {
-        this.$emit("input", this.uncheckedValue);
+      if (!this.disabled && !this.readonly) {
+        if (e.target.checked) {
+          this.$emit("input", this.checkedValue);
+        } else {
+          this.$emit("input", this.uncheckedValue);
+        }
       }
     }
   }
@@ -87,7 +93,7 @@ export default {
 
 <style lang="css" scoped>
 .input {
-  @apply absolute left-0 bottom-0 w-px h-px opacity-0 cursor-pointer;
+  @apply sr-only;
 }
 
 .mark {

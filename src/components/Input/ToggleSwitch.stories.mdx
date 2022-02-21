@@ -1,0 +1,109 @@
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import ToggleSwitch from "./ToggleSwitch.vue";
+
+<Meta
+  title="Inputs/ToggleSwitch"
+  component={ToggleSwitch}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { ToggleSwitch },
+  props: Object.keys(argTypes),
+  template: `<ToggleSwitch v-bind="$props" />`,
+});
+
+export const RegularTemplate = (args, { argTypes }) => ({
+  components: { ToggleSwitch },
+  props: Object.keys(argTypes),
+  mounted() {
+    document.getElementById("focus").focus();
+  },
+  template: `
+    <div class="flex justify-around">
+      <ToggleSwitch v-bind="$props" />
+      <ToggleSwitch v-bind="$props" :value="true" />
+      <ToggleSwitch v-bind="$props" id="focus" :value="true" />
+    </div>
+  `,
+});
+
+export const LabelTemplate = (args, { argTypes }) => ({
+  components: { ToggleSwitch },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="flex justify-around">
+      <ToggleSwitch v-bind="$props" label="Off with label" />
+      <ToggleSwitch v-bind="$props" label="On with label" :value="true" />
+    </div>
+  `,
+});
+
+export const DisabledTemplate = (args, { argTypes }) => ({
+  components: { ToggleSwitch },
+  props: Object.keys(argTypes),
+  template: `<ToggleSwitch v-bind="$props" :disabled="true" />`,
+});
+
+export const CustomSizesTemplate = (args, { argTypes }) => ({
+  components: { ToggleSwitch },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="flex justify-around">
+      <ToggleSwitch v-bind="$props" label="Toggle me" />
+      <ToggleSwitch v-bind="$props" class-name="w-20 h-10" switch-class-name="!w-8 !h-8" label-class-name="text-2xl" label="Toggle me" />
+      <ToggleSwitch v-bind="$props" class-name="w-24 h-12" switch-class-name="!w-10 !h-10" label-class-name="text-3xl" label="Toggle me" />
+    </div>
+  `,
+});
+
+# ToggleSwitch
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+<Canvas>
+  <Story name="Overview">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
+
+### Regular
+
+<Canvas>
+  <Story name="Regular">
+    {RegularTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Label
+
+<Canvas>
+  <Story name="Label">
+    {LabelTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+    {DisabledTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Custom sizes
+
+<Canvas>
+  <Story name="CustomSizes">
+    {CustomSizesTemplate.bind({})}
+  </Story>
+</Canvas>
