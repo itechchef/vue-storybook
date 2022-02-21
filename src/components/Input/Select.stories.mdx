@@ -1,0 +1,111 @@
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import Select from "./Select.vue";
+
+<Meta
+  title="Inputs/Select"
+  component={Select}
+  argTypes={{
+    state: {
+      control: {
+        type: "select",
+        options: [
+          "",
+          "success",
+          "error",
+        ],
+      },
+    },
+  }}
+  args={{
+    options: [{
+      value: 1,
+      label: "Option A",
+    }, {
+      value: 2,
+      label: "Option B",
+    }, {
+      value: 3,
+      label: "Option C",
+    }, {
+      value: 4,
+      label: "Option D",
+    }, {
+      value: 5,
+      label: "Option E",
+    }]
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { Select },
+  props: Object.keys(argTypes),
+  template: `<Select v-bind="$props" />`,
+});
+
+export const SizesTemplate = (args, { argTypes }) => ({
+  components: { Select },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="flex gap-4">
+      <Select v-bind="$props" size="small" placeholder="Small select" />
+      <Select v-bind="$props" size="medium" placeholder="Medium select" />
+      <Select v-bind="$props" size="large" placeholder="Large select" />
+    </div>
+  `,
+});
+
+export const LanguageTemplate = (args, { argTypes }) => ({
+  components: { Select },
+  data() {
+    return {
+      selectedValue: "en",
+      optionItems: [{ value: 'en', label: 'English (UK)' }, { value: 'fr', label: 'French' }, { value: 'es', label: 'Spanish' }]
+    }
+  },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      <Select
+        v-bind="$props"
+        label="Select language"
+        :options="optionItems"
+        v-model="selectedValue"
+      />
+      The selected option : {{ optionItems.find(item => item.value == selectedValue) ? optionItems.find(item => item.value == selectedValue).label : '' }} 
+    </div>
+  `,
+});
+
+# Select
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+<Canvas>
+  <Story name="Overview">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
+
+### Sizes
+<Canvas>
+  <Story name="Sizes">
+    {SizesTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Label
+<Canvas>
+  <Story name="Label">
+    {LanguageTemplate.bind({})}
+  </Story>
+</Canvas>
