@@ -1,0 +1,79 @@
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import Radio from "./Radio.vue";
+
+<Meta
+  title="Inputs/Radio"
+  component={Radio}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { Radio },
+  props: Object.keys(argTypes),
+  template: `<Radio v-bind="$props" />`,
+});
+
+export const RegularTemplate = (args, { argTypes }) => ({
+  components: { Radio },
+  props: Object.keys(argTypes),
+  mounted() {
+    document.getElementById("focus").focus();
+  },
+  template: `
+    <div class="flex justify-around">
+      <Radio v-bind="$props" />
+      <Radio v-bind="$props" :checked="true" />
+      <Radio v-bind="$props" id="focus" :checked="true" />
+    </div>
+  `,
+});
+
+export const LabelTemplate = (args, { argTypes }) => ({
+  components: { Radio },
+  props: Object.keys(argTypes),
+  mounted() {
+    document.getElementById("focus-label").focus();
+  },
+  template: `
+    <div class="flex justify-around">
+      <Radio v-bind="$props" label="Unchecked and label" />
+      <Radio v-bind="$props" :checked="true" label="Default with label" />
+      <Radio v-bind="$props" id="focus-label" :checked="true" label="Default checked radio" />
+    </div>
+  `,
+});
+
+# Radio
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+<Canvas>
+  <Story name="Overview">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
+
+### Regular
+
+<Canvas>
+  <Story name="Regular">
+    {RegularTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Label
+
+<Canvas>
+  <Story name="Label">
+    {LabelTemplate.bind({})}
+  </Story>
+</Canvas>
