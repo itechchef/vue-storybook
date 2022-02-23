@@ -21,7 +21,7 @@ import Textarea from "./Textarea.vue";
 export const Template = (args, { argTypes }) => ({
   components: { Textarea },
   props: Object.keys(argTypes),
-  template: `<Textarea v-bind="$props" />`,
+  template: `<Textarea v-bind="$props" placeholder="Write text here ..." />`,
 });
 
 export const EmailTemplate = (args, { argTypes }) => ({

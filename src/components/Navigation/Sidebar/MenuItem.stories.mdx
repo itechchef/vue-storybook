@@ -1,0 +1,68 @@
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import Sidebar from "./Sidebar.vue";
+import MenuItem from "./MenuItem.vue";
+import SubMenuItem from "./SubMenuItem.vue";
+
+<Meta
+  title="Navigation/MenuItem"
+  component={MenuItem}
+  args={{ color: "primary" }}
+  argTypes={{
+    color: {
+      control: {
+        type: "select",
+        options: [
+          "primary",
+          "secondary",
+          "dark",
+          "white",
+          "green",
+          "blue2",
+          "orange2",
+          "red",
+          "magenta",
+          "purple",
+        ],
+      },
+    },
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { Sidebar, MenuItem, SubMenuItem },
+  props: Object.keys(argTypes),
+  template: `
+    <Sidebar :color="$props.color">
+      <MenuItem v-bind="$props" title="Sales" :active="true" :has-sub-menu="true">
+        <template slot="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+        </template>
+        <SubMenuItem title="Product List" />
+        <SubMenuItem title="Billing" />
+        <SubMenuItem title="Invoice" />
+      </MenuItem>
+    </Sidebar>
+  `,
+});
+
+# Sidebar
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+<Canvas>
+  <Story name="Overview">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
