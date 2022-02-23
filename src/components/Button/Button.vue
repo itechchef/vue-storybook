@@ -53,9 +53,9 @@ export default {
             "warning",
             "dark",
             "white",
-            "pink",
-            "teal",
-            "indigo",
+            "orange2",
+            "blue2",
+            "magenta",
             "purple",
           ].indexOf(value) !== -1
         );
@@ -115,11 +115,11 @@ export default {
         "text-cool-gray-900 hover:text-cool-gray-900 focus:text-cool-gray-900 bg-yellow-400 hover:bg-yellow-500 focus:bg-yellow-400 focus:ring-yellow-300 border-yellow-400 dark:focus:ring-yellow-900":
           this.color === "warning",
         "text-white hover:text-white focus:text-white bg-orange2-600 hover:bg-orange2-700 focus:bg-orange2-600 focus:ring-orange2-300 border-orange2-600 dark:focus:ring-orange2-900":
-          this.color === "pink",
+          this.color === "orange2",
         "text-white hover:text-white focus:text-white bg-blue2-500 hover:bg-blue2-600 focus:bg-blue2-500 focus:ring-blue2-300 border-blue2-500 dark:focus:ring-blue2-900":
-          this.color === "teal",
+          this.color === "blue2",
         "text-white hover:text-white focus:text-white bg-magenta-600 hover:bg-magenta-700 focus:bg-magenta-600 focus:ring-magenta-300 border-magenta-600 dark:focus:ring-magenta-900":
-          this.color === "indigo",
+          this.color === "magenta",
         "text-white hover:text-white focus:text-white bg-purple-500 hover:bg-purple-700 focus:bg-purple-600 focus:ring-purple-300 border-purple-500 dark:focus:ring-purple-900":
           this.color === "purple",
         "bg-transparent dark:bg-transparent": this.outlined,
@@ -129,17 +129,17 @@ export default {
         "text-red-500": this.outlined && this.color === "danger",
         "text-green-600": this.outlined && this.color === "success",
         "text-yellow-400": this.outlined && this.color === "warning",
-        "text-orange2-600": this.outlined && this.color === "pink",
-        "text-blue2-500": this.outlined && this.color === "teal",
-        "text-magenta-600": this.outlined && this.color === "indigo",
+        "text-orange2-600": this.outlined && this.color === "orange2",
+        "text-blue2-500": this.outlined && this.color === "blue2",
+        "text-magenta-600": this.outlined && this.color === "magenta",
         "text-purple-500": this.outlined && this.color === "purple",
         "disabled:text-gray-400 disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:cursor-not-allowed":
           this.disabled,
         "text-xs px-3 py-2": this.size === "extra-small",
         "text-sm px-3 py-2": this.size === "small",
-        "text-sm px-5 py-2.5": this.size === "base",
-        "text-base px-5 py-3": this.size === "large",
-        "text-base px-6 py-3.5": this.size === "extra-large",
+        "text-base font-medium px-5 py-2.5": this.size === "base",
+        "text-lg font-bold px-5 py-3": this.size === "large",
+        "text-xl font-extrabold px-6 py-3.5": this.size === "extra-large",
         "rounded-full": this.pills,
       };
 
