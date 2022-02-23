@@ -1,0 +1,76 @@
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import Textarea from "./Textarea.vue";
+
+<Meta
+  title="Inputs/Textarea"
+  component={Textarea}
+  argTypes={{
+    state: {
+      control: {
+        type: "select",
+        options: [
+          "",
+          "success",
+          "error",
+        ],
+      },
+    },
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { Textarea },
+  props: Object.keys(argTypes),
+  template: `<Textarea v-bind="$props" />`,
+});
+
+export const EmailTemplate = (args, { argTypes }) => ({
+  components: { Textarea },
+  props: Object.keys(argTypes),
+  template: `<Textarea v-bind="$props" type="email" label="Your email" icon-name="mail" placeholder="name@example.com" />`,
+});
+
+export const StatesTemplate = (args, { argTypes }) => ({
+  components: { Textarea },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      <Textarea v-bind="$props" state="success" description="Well done! Some success message!" />
+      <Textarea v-bind="$props" state="error" description="Oh snape! There was an error." />
+    </div>
+  `,
+});
+
+# Input
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+<Canvas>
+  <Story name="Overview">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
+
+### Email
+<Canvas>
+  <Story name="Email">
+    {EmailTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### States
+<Canvas>
+  <Story name="States">
+    {StatesTemplate.bind({})}
+  </Story>
+</Canvas>

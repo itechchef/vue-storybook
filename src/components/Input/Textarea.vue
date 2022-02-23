@@ -2,10 +2,7 @@
   <div class="mb-4">
     <label v-if="label" :for="id" :class="labelClasses">{{ label }}</label>
     <div class="relative">
-      <div v-if="iconName" class="absolute text-cool-gray-500 left-2 top-1/2 -translate-y-1/2 w-5 h-5">
-        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-      </div>
-      <input
+      <textarea
         :type="type"
         :id="id"
         v-model="inputValue"
@@ -19,8 +16,8 @@
         @blur="(e) => $emit('blur', e)"
         @keydown="(e) => $emit('keydown', e)"
       />
-      <svg v-if="state === 'success'" class="absolute text-green-500 right-2 top-1/2 -translate-y-1/2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-      <svg v-if="state === 'error'" class="absolute text-red-500 right-2 top-1/2 -translate-y-1/2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+      <svg v-if="state === 'success'" class="absolute text-green-500 right-4 top-1/2 -translate-y-1/2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+      <svg v-if="state === 'error'" class="absolute text-red-500 right-4 top-1/2 -translate-y-1/2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
     </div>
     <div v-if="description" :class="descriptionClasses">
       {{ description }}
@@ -30,10 +27,10 @@
 
 <script>
 export default {
-  name: "Input",
+  name: "Textarea",
   props: {
     /**
-     * id to pass to the text field
+     * id to pass to the textarea field
      */
     id: {
       type: String,
@@ -45,7 +42,7 @@ export default {
       type: [String, Object],
     },
     /**
-     * The value to pass to the text field
+     * The value to pass to the textarea field
      */
     value: {
       type: String,
@@ -55,7 +52,7 @@ export default {
       default: "",
     },
     /**
-     * adds required to the input element
+     * Required property to the textarea element
      */
     required: {
       type: Boolean,
@@ -96,13 +93,12 @@ export default {
     classes() {
       let classes = {
         "text-cool-gray-900 text-base placeholder-cool-gray-500 bg-cool-gray-50 border border-cool-gray-300 rounded-lg flex-grow focus:outline-none focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-cool-gray-700 dark:border-cool-gray-600 dark:placeholder-cool-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500": true,
-        "text-xs !p-2": this.size === "small",
-        "p-2.5": this.size === "medium",
-        "text-lg p-3": this.size === "large",
+        "text-xs": this.size === "small",
+        "text-base": this.size === "medium",
+        "text-lg": this.size === "large",
         "bg-green-50 border-green-500 pr-8": this.state === "success",
         "bg-red-50 !border-red-500 pr-8": this.state === "error",
         "text-cool-gray-400 cursor-not-allowed": this.disabled || this.readonly,
-        "!pl-8": this.iconName,
       };
 
       if (typeof this.className === "string") {
