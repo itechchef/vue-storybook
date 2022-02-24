@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="containerClasses">
     <label v-if="label" :for="id" :class="labelClasses">{{ label }}</label>
     <div class="relative">
       <div v-if="showIcon" :class="iconClasses">
@@ -42,6 +42,9 @@ export default {
       type: String,
     },
     className: {
+      type: [String, Object],
+    },
+    containerClassName: {
       type: [String, Object],
     },
     /**
@@ -129,6 +132,17 @@ export default {
       return {
         "absolute text-cool-gray-500 left-2 top-1/2 -translate-y-1/2 w-5 h-5": true,
       }
+    },
+    containerClasses() {
+      let classes = {};
+
+      if (typeof this.containerClassName === "string") {
+        classes = { ...classes, [this.containerClassName]: true };
+      } else if (typeof this.containerClassName === "object") {
+        classes = { ...classes, ...this.containerClassName };
+      }
+
+      return classes;
     },
     inputValue: {
       get() {

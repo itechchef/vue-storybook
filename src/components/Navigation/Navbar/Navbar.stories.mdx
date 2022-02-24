@@ -1,0 +1,291 @@
+import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
+import Navbar from "./Navbar.vue";
+import Input from "../../Input/Input.vue";
+import Button from "../../Button/Button.vue";
+
+<Meta
+  title="Navigation/Navbar"
+  component={Navbar}
+  parameters={{
+    backgrounds: {
+      default: 'light',
+    },
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  components: { Navbar },
+  props: Object.keys(argTypes),
+  template: `
+    <Navbar v-bind="$props">
+      <template slot="brand">
+        <a href="#" class="text-xl flex items-center gap-2">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.4814 0H10.5195V8.96189H19.4814V0Z" fill="#03C4EF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 0H21.0672C25.9872 0 30 4.01277 30 8.93275V8.96189H21.0381V0Z" fill="#00DCAD"/>
+            <path d="M19.4814 10.5195H10.5195V19.4814H19.4814V10.5195Z" fill="#DA49DD"/>
+            <path d="M19.4814 21.0381H10.5195V29.9999H19.4814V21.0381Z" fill="#FE7B3C"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 0H8.93275C4.01272 0 0 4.01277 0 8.93275V8.96189H8.96184V0Z" fill="#04C5F0"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 19.4814H8.93275C4.01272 19.4814 0 15.4686 0 10.5486V10.5195H8.96184V19.4814Z" fill="#B170FE"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 29.9999H8.93275C4.01272 29.9999 0 25.9872 0 21.0672V21.0381H8.96184V29.9999Z" fill="#FDBD02"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 10.5195H21.0672C25.9872 10.5195 30 14.5324 30 19.4523V19.4815H21.0381V10.5195Z" fill="#FE4672"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 30.0001H21.0672C25.9872 30.0001 30 25.9872 30 21.0672V21.0381H21.0381V30.0001Z" fill="#FE5B43"/>
+          </svg>
+          Stylebase
+        </a>
+      </template>
+      <template slot="action">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+        </svg>
+      </template>
+    </Navbar>
+  `,
+});
+
+export const SearchTemplate = (args, { argTypes }) => ({
+  components: { Navbar, Input },
+  props: Object.keys(argTypes),
+  template: `
+    <Navbar v-bind="$props">
+      <template slot="brand">
+        <a href="#" class="text-xl flex items-center gap-2">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.4814 0H10.5195V8.96189H19.4814V0Z" fill="#03C4EF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 0H21.0672C25.9872 0 30 4.01277 30 8.93275V8.96189H21.0381V0Z" fill="#00DCAD"/>
+            <path d="M19.4814 10.5195H10.5195V19.4814H19.4814V10.5195Z" fill="#DA49DD"/>
+            <path d="M19.4814 21.0381H10.5195V29.9999H19.4814V21.0381Z" fill="#FE7B3C"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 0H8.93275C4.01272 0 0 4.01277 0 8.93275V8.96189H8.96184V0Z" fill="#04C5F0"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 19.4814H8.93275C4.01272 19.4814 0 15.4686 0 10.5486V10.5195H8.96184V19.4814Z" fill="#B170FE"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 29.9999H8.93275C4.01272 29.9999 0 25.9872 0 21.0672V21.0381H8.96184V29.9999Z" fill="#FDBD02"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 10.5195H21.0672C25.9872 10.5195 30 14.5324 30 19.4523V19.4815H21.0381V10.5195Z" fill="#FE4672"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 30.0001H21.0672C25.9872 30.0001 30 25.9872 30 21.0672V21.0381H21.0381V30.0001Z" fill="#FE5B43"/>
+          </svg>
+          Stylebase
+        </a>
+      </template>
+      <Input className="mb-0" :show-icon="true" size="small" placeholder="Search...">
+        <template slot="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </template>
+      </Input>
+      <template slot="action">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+        </svg>
+      </template>
+    </Navbar>
+  `,
+});
+
+export const CTAButtonTemplate = (args, { argTypes }) => ({
+  components: { Navbar, Input, Button },
+  props: Object.keys(argTypes),
+  template: `
+    <Navbar v-bind="$props">
+      <template slot="brand">
+        <a href="#" class="text-xl flex items-center gap-2">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.4814 0H10.5195V8.96189H19.4814V0Z" fill="#03C4EF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 0H21.0672C25.9872 0 30 4.01277 30 8.93275V8.96189H21.0381V0Z" fill="#00DCAD"/>
+            <path d="M19.4814 10.5195H10.5195V19.4814H19.4814V10.5195Z" fill="#DA49DD"/>
+            <path d="M19.4814 21.0381H10.5195V29.9999H19.4814V21.0381Z" fill="#FE7B3C"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 0H8.93275C4.01272 0 0 4.01277 0 8.93275V8.96189H8.96184V0Z" fill="#04C5F0"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 19.4814H8.93275C4.01272 19.4814 0 15.4686 0 10.5486V10.5195H8.96184V19.4814Z" fill="#B170FE"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 29.9999H8.93275C4.01272 29.9999 0 25.9872 0 21.0672V21.0381H8.96184V29.9999Z" fill="#FDBD02"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 10.5195H21.0672C25.9872 10.5195 30 14.5324 30 19.4523V19.4815H21.0381V10.5195Z" fill="#FE4672"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 30.0001H21.0672C25.9872 30.0001 30 25.9872 30 21.0672V21.0381H21.0381V30.0001Z" fill="#FE5B43"/>
+          </svg>
+          Stylebase
+        </a>
+      </template>
+      <Input className="mb-0" :show-icon="true" size="small" placeholder="Search...">
+        <template slot="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </template>
+      </Input>
+      <template slot="action">
+        <Button size="extra-small" color="black" className="flex flex-nowrap items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+          </svg>
+          New Widget
+        </Button>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+        </svg>
+      </template>
+    </Navbar>
+  `,
+});
+
+export const NavMenuTemplate = (args, { argTypes }) => ({
+  components: { Navbar, Input, Button },
+  props: Object.keys(argTypes),
+  template: `
+    <Navbar v-bind="$props">
+      <template slot="brand">
+        <a href="#" class="text-xl flex items-center gap-2">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.4814 0H10.5195V8.96189H19.4814V0Z" fill="#03C4EF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 0H21.0672C25.9872 0 30 4.01277 30 8.93275V8.96189H21.0381V0Z" fill="#00DCAD"/>
+            <path d="M19.4814 10.5195H10.5195V19.4814H19.4814V10.5195Z" fill="#DA49DD"/>
+            <path d="M19.4814 21.0381H10.5195V29.9999H19.4814V21.0381Z" fill="#FE7B3C"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 0H8.93275C4.01272 0 0 4.01277 0 8.93275V8.96189H8.96184V0Z" fill="#04C5F0"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 19.4814H8.93275C4.01272 19.4814 0 15.4686 0 10.5486V10.5195H8.96184V19.4814Z" fill="#B170FE"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 29.9999H8.93275C4.01272 29.9999 0 25.9872 0 21.0672V21.0381H8.96184V29.9999Z" fill="#FDBD02"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 10.5195H21.0672C25.9872 10.5195 30 14.5324 30 19.4523V19.4815H21.0381V10.5195Z" fill="#FE4672"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 30.0001H21.0672C25.9872 30.0001 30 25.9872 30 21.0672V21.0381H21.0381V30.0001Z" fill="#FE5B43"/>
+          </svg>
+          Stylebase
+        </a>
+      </template>
+      <ul class="list-none hidden lg:flex flex-nowrap items-center gap-3">
+        <li class="text-orange2-500">Product</li>
+        <li>Use Cases</li>
+        <li>Pricing</li>
+        <li>Blog</li>
+        <li>Case Studies</li>
+        <li>Help</li>
+        <li>Contact</li>
+      </ul>
+      <Input className="mb-0" containerClassName="grow lg:grow-0" :show-icon="true" size="small" placeholder="Search...">
+        <template slot="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </template>
+      </Input>
+      <template slot="action">
+        <a href="#">Sign in</a>
+        <Button size="extra-small" color="black">
+          Button Text
+        </Button>
+      </template>
+    </Navbar>
+  `,
+});
+
+export const NavMenuCenterTemplate = (args, { argTypes }) => ({
+  components: { Navbar, Input, Button },
+  props: Object.keys(argTypes),
+  template: `
+    <Navbar v-bind="$props" alignMenu="center">
+      <template slot="brand">
+        <a href="#" class="text-xl flex items-center gap-2">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.4814 0H10.5195V8.96189H19.4814V0Z" fill="#03C4EF"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 0H21.0672C25.9872 0 30 4.01277 30 8.93275V8.96189H21.0381V0Z" fill="#00DCAD"/>
+            <path d="M19.4814 10.5195H10.5195V19.4814H19.4814V10.5195Z" fill="#DA49DD"/>
+            <path d="M19.4814 21.0381H10.5195V29.9999H19.4814V21.0381Z" fill="#FE7B3C"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 0H8.93275C4.01272 0 0 4.01277 0 8.93275V8.96189H8.96184V0Z" fill="#04C5F0"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 19.4814H8.93275C4.01272 19.4814 0 15.4686 0 10.5486V10.5195H8.96184V19.4814Z" fill="#B170FE"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.96184 29.9999H8.93275C4.01272 29.9999 0 25.9872 0 21.0672V21.0381H8.96184V29.9999Z" fill="#FDBD02"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 10.5195H21.0672C25.9872 10.5195 30 14.5324 30 19.4523V19.4815H21.0381V10.5195Z" fill="#FE4672"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0381 30.0001H21.0672C25.9872 30.0001 30 25.9872 30 21.0672V21.0381H21.0381V30.0001Z" fill="#FE5B43"/>
+          </svg>
+          <span class="hidden sm:block">Stylebase</span>
+        </a>
+      </template>
+      <ul class="list-none hidden lg:flex flex-nowrap items-center gap-3">
+        <li class="text-orange2-500">Product</li>
+        <li>Use Cases</li>
+        <li>Pricing</li>
+        <li>Blog</li>
+        <li>Case Studies</li>
+        <li>Help</li>
+        <li>Contact</li>
+      </ul>
+      <svg xmlns="http://www.w3.org/2000/svg" class="block lg:hidden shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+      </svg>
+      <Input className="mb-0" containerClassName="grow lg:grow-0" :show-icon="true" size="small" placeholder="Search...">
+        <template slot="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </template>
+      </Input>
+      <template slot="action">
+        <a href="#">Sign in</a>
+        <Button size="extra-small" color="black">
+          Button Text
+        </Button>
+      </template>
+    </Navbar>
+  `,
+});
+
+# Navbar
+
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+<Canvas>
+  <Story name="Overview">
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable story="Overview" />
+
+## Variants
+
+### With Search
+
+<Canvas>
+  <Story name="WithSearch">
+    {SearchTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### CTA Button
+
+<Canvas>
+  <Story name="CTAButton">
+    {CTAButtonTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### NavMenu
+
+<Canvas>
+  <Story name="NavMenu">
+    {NavMenuTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### NavMenuCenter
+
+<Canvas>
+  <Story name="NavMenuCenter">
+    {NavMenuCenterTemplate.bind({})}
+  </Story>
+</Canvas>
