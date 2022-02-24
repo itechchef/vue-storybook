@@ -39,7 +39,26 @@ export const SizesTemplate = (args, { argTypes }) => ({
 export const EmailTemplate = (args, { argTypes }) => ({
   components: { Input },
   props: Object.keys(argTypes),
-  template: `<Input v-bind="$props" type="email" label="Your email" icon-name="mail" placeholder="name@example.com" />`,
+  template: `
+    <Input v-bind="$props" type="email" label="Your email" :show-icon="true" placeholder="name@example.com">
+      <template slot="icon">
+        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+      </template>
+  `,
+});
+
+export const SearchTemplate = (args, { argTypes }) => ({
+  components: { Input },
+  props: Object.keys(argTypes),
+  template: `
+    <Input v-bind="$props" :show-icon="true" placeholder="Search">
+      <template slot="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </template>
+    </Input>
+  `,
 });
 
 export const StatesTemplate = (args, { argTypes }) => ({
@@ -48,6 +67,7 @@ export const StatesTemplate = (args, { argTypes }) => ({
   template: `
     <div>
       <Input v-bind="$props" state="success" description="Well done! Some success message!" />
+      <br />
       <Input v-bind="$props" state="error" description="Oh snape! There was an error." />
     </div>
   `,
@@ -84,6 +104,13 @@ export const StatesTemplate = (args, { argTypes }) => ({
 <Canvas>
   <Story name="Email">
     {EmailTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Search
+<Canvas>
+  <Story name="Search">
+    {SearchTemplate.bind({})}
   </Story>
 </Canvas>
 
