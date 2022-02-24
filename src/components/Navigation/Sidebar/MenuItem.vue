@@ -1,8 +1,8 @@
 <template>
   <div>
     <a :class="classes" :href="url" @click="isOpen = !isOpen">
-      <slot name="icon"></slot>
-      <div class="flex-grow px-4">{{ title }}</div>
+      <slot name="icon" class="menu-icon"></slot>
+      <div class="flex-grow px-4 menu-title">{{ title }}</div>
       <span
         v-if="badgeCount > 0"
         class="
@@ -16,10 +16,11 @@
           justify-center
           rounded-full
           leading-none
+          badge
         "
         >{{ badgeCount }}</span
       >
-      <span v-if="hasSubMenu">
+      <span v-if="hasSubMenu" class="chevron">
         <svg
           v-if="isOpen"
           xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +54,7 @@
       </span>
     </a>
 
-    <div v-if="hasSubMenu && isOpen">
+    <div v-if="hasSubMenu && isOpen" class="submenu">
       <slot />
     </div>
   </div>
@@ -95,12 +96,12 @@ export default {
     url: {
       type: String,
       default: null,
-    }
+    },
   },
   computed: {
     classes() {
       let classes = {
-        "p-2 w-full rounded-lg flex flex-nowrap items-center justify-between cursor-default": true,
+        "p-2 w-full rounded-lg flex flex-nowrap items-center justify-between cursor-default menu-item": true,
         "bg-active": this.active,
       };
 
@@ -116,29 +117,41 @@ export default {
   watch: {
     open(value) {
       this.isOpen = value;
-    }
+    },
   },
   mounted() {
     this.isOpen = this.open;
-  }
+  },
 };
 </script>
 
 <style lang="css" scoped>
-.primary .bg-active {
-  @apply bg-blue-500;
+.white .bg-active {
+  @apply bg-cool-gray-100;
 }
 
-.secondary .bg-active {
-  @apply bg-cool-gray-200;
+.white.collapsed .bg-active::before {
+  @apply bg-cool-gray-900;
 }
 
 .dark .bg-active {
   @apply bg-cool-gray-700;
 }
 
-.white .bg-active {
-  @apply bg-white;
+.dark.collapsed .bg-active::before  {
+  @apply bg-cool-gray-500;
+}
+
+.gray .bg-active {
+  @apply bg-cool-gray-200;
+}
+
+.gray.collapsed .bg-active::before {
+  @apply bg-cool-gray-900;
+}
+
+.primary .bg-active {
+  @apply bg-blue-500;
 }
 
 .orange2 .bg-active {
@@ -163,5 +176,43 @@ export default {
 
 .purple .bg-active {
   @apply bg-purple-600;
+}
+
+.collapsed .menu-item {
+  @apply relative justify-center rounded-none;
+}
+
+.collapsed.letter-menu .menu-item {
+  @apply py-1.5;
+}
+
+.collapsed .bg-active::before {
+  content: "";
+  @apply absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-md w-1.5 h-8 bg-cool-gray-500;
+}
+
+.collapsed.icon-menu .menu-title {
+  @apply hidden;
+}
+
+.collapsed.letter-menu .menu-title {
+  font-size: 0;
+  @apply first-letter:uppercase first-letter:text-xl first-letter:font-semibold;
+}
+
+.collapsed.letter-menu .menu-icon {
+  @apply hidden;
+}
+
+.collapsed .submenu {
+  @apply hidden;
+}
+
+.collapsed .chevron {
+  @apply hidden;
+}
+
+.collapsed .badge {
+  @apply w-4 h-4 absolute right-2 bottom-1;
 }
 </style>
