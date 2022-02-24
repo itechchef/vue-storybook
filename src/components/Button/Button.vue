@@ -42,21 +42,13 @@ export default {
      */
     color: {
       type: String,
-      default: "primary",
+      default: "black",
       validator: function (value) {
         return (
           [
-            "primary",
-            "secondary",
-            "success",
-            "danger",
-            "warning",
-            "dark",
             "white",
-            "orange2",
-            "blue2",
-            "magenta",
-            "purple",
+            "dark",
+            "black",
           ].indexOf(value) !== -1
         );
       },
@@ -100,10 +92,11 @@ export default {
     classes() {
       let classes = {
         "text-base text-center font-inter font-medium focus:ring-4 border py-2 px-3 rounded-lg": true,
+        "text-white bg-black focus:ring-cool-gray-400 border-black": this.color === "black",
         "text-white hover:text-white focus:text-white bg-blue-600 hover:bg-blue-700 focus:bg-blue-600 focus:ring-blue-300 border-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800":
           this.color === "primary",
         "text-cool-gray-700 hover:text-cool-gray-700 focus:text-cool-gray-700 bg-cool-gray-200 hover:bg-cool-gray-300 focus:bg-cool-gray-200 focus:ring-cool-gray-100 border-cool-gray-700 dark:bg-cool-gray-200 dark:hover:bg-cool-gray-300 dark:focus:ring-cool-gray-100":
-          this.color === "secondary",
+          this.color === "gray",
         "text-cool-gray-900 bg-white hover:bg-gray-100 border-gray-200 focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700":
           this.color === "white",
         "text-white hover:text-white focus:text-white bg-cool-gray-700 hover:bg-cool-gray-800 focus:bg-cool-gray-700 focus:ring-cool-gray-300 border-cool-gray-700 dark:bg-cool-gray-800 dark:hover:bg-cool-gray-700 dark:focus:bg-cool-gray-800 dark:focus:ring-cool-gray-800":
@@ -124,7 +117,7 @@ export default {
           this.color === "purple",
         "bg-transparent dark:bg-transparent": this.outlined,
         "text-blue-600": this.outlined && this.color === "primary",
-        "text-cool-gray-700": this.outlined && this.color === "secondary",
+        "text-cool-gray-700": this.outlined && this.color === "gray",
         "text-cool-gray-700": this.outlined && this.color === "dark",
         "text-red-500": this.outlined && this.color === "danger",
         "text-green-600": this.outlined && this.color === "success",
