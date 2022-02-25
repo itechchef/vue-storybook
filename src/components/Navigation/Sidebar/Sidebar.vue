@@ -52,6 +52,9 @@ export default {
         return ["icon", "letter"].indexOf(value) != -1
       }
     },
+    className: {
+      type: [String, Object],
+    },
   },
   computed: {
     sidebarClass() {

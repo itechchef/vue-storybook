@@ -37,7 +37,10 @@ export default {
           ].indexOf(value) !== -1
         )
       }
-    }
+    },
+    className: {
+      type: [String, Object],
+    },
   },
   computed: {
     navbarClass() {
