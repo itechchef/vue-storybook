@@ -91,7 +91,7 @@ export default {
   computed: {
     classes() {
       let classes = {
-        "text-base text-center font-inter font-medium focus:ring-4 border py-2 px-3 rounded-lg": true,
+        "text-base text-center font-inter font-medium border py-2 px-3 rounded-lg": true,
         "text-white bg-black focus:ring-cool-gray-400 border-black": this.color === "black",
         "text-white hover:text-white focus:text-white bg-blue-600 hover:bg-blue-700 focus:bg-blue-600 focus:ring-blue-300 border-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800":
           this.color === "primary",
@@ -116,6 +116,7 @@ export default {
         "text-white hover:text-white focus:text-white bg-purple-500 hover:bg-purple-700 focus:bg-purple-600 focus:ring-purple-300 border-purple-500 dark:focus:ring-purple-900":
           this.color === "purple",
         "bg-transparent dark:bg-transparent": this.outlined,
+        "text-black": this.outlined && this.color === "black",
         "text-blue-600": this.outlined && this.color === "primary",
         "text-cool-gray-700": this.outlined && this.color === "gray",
         "text-cool-gray-700": this.outlined && this.color === "dark",
