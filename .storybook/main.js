@@ -1,9 +1,9 @@
 module.exports = {
-  "stories": [
+  stories: [
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
-  "addons": [
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/preset-scss",
@@ -18,6 +18,8 @@ module.exports = {
         },
       },
     },
+    "storybook-dark-mode",
   ],
-  "framework": "@storybook/vue"
+  framework: "@storybook/vue",
+  staticDirs: ['../public'],
 }

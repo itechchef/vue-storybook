@@ -1,4 +1,4 @@
-import '../src/style/global.css';
+import "../src/style/global.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -7,5 +7,8 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  darkMode: {
+    stylePreview: true,
   },
 }
