@@ -46,7 +46,7 @@ export default {
       let classes = {
         "flex items-center gap-1 justify-center": true,
         "bg-blue-600 text-white text-base font-medium py-3 px-4 rounded-lg": !this.navmenu,
-        "bg-transparent cursor-default": this.navmenu,
+        "bg-transparent cursor-default dark:text-cool-gray-200": this.navmenu,
       };
 
       if (typeof this.className === "string") {
