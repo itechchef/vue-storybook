@@ -45,7 +45,7 @@ export default {
   computed: {
     navbarClass() {
       let classes = {
-        "text-sm font-medium bg-white border-cool-gray-200 px-2 sm:px-4 py-2.5 w-full h-16 flex flex-nowrap gap-4 items-center justify-between": true,
+        "text-sm font-medium bg-white border-cool-gray-200 px-2 sm:px-4 py-2.5 w-full h-16 flex flex-nowrap gap-4 items-center justify-between dark:text-cool-gray-300 dark:bg-cool-gray-800": true,
         "text-cool-gray-500": this.color == "white",
         "!text-cool-gray-300 !bg-cool-gray-800": this.color == "dark",
       }

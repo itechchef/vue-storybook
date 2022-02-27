@@ -2,6 +2,10 @@ import { ArgsTable, Meta, Story, Canvas } from "@storybook/addon-docs";
 import Navbar from "./Navbar.vue";
 import Input from "../../Input/Input.vue";
 import Button from "../../Button/Button.vue";
+import Dropdown from "../Dropdown/Dropdown.vue";
+import DropdownItem from "../Dropdown/DropdownItem.vue";
+import DropdownDivider from "../Dropdown/DropdownDivider.vue";
+import DropdownHeader from "../Dropdown/DropdownHeader.vue";
 
 <Meta
   title="Navigation/Navbar"
@@ -14,7 +18,7 @@ import Button from "../../Button/Button.vue";
 />
 
 export const Template = (args, { argTypes }) => ({
-  components: { Navbar },
+  components: { Navbar, Dropdown, DropdownItem, DropdownDivider, DropdownHeader },
   props: Object.keys(argTypes),
   template: `
     <Navbar v-bind="$props">
@@ -41,16 +45,30 @@ export const Template = (args, { argTypes }) => ({
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
           <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
-        </svg>
+        <Dropdown :navmenu="true" listClassName="right-0 translate-y-[110%]">
+          <template slot="menu-content">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+            </svg>
+          </template>
+          <DropdownHeader>
+            Jese Leos<br />
+            name@example.com
+          </DropdownHeader>
+          <DropdownDivider />
+          <DropdownItem>Your Profile</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
+          <DropdownItem>Sign Out</DropdownItem>
+          <DropdownDivider />
+          <DropdownItem>Delete</DropdownItem>
+        </Dropdown>
       </template>
     </Navbar>
   `,
 });
 
 export const SearchTemplate = (args, { argTypes }) => ({
-  components: { Navbar, Input },
+  components: { Navbar, Input, Dropdown, DropdownItem, DropdownDivider, DropdownHeader },
   props: Object.keys(argTypes),
   template: `
     <Navbar v-bind="$props">
@@ -84,16 +102,30 @@ export const SearchTemplate = (args, { argTypes }) => ({
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
           <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
-        </svg>
+        <Dropdown :navmenu="true" listClassName="right-0 translate-y-[110%]">
+          <template slot="menu-content">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+            </svg>
+          </template>
+          <DropdownHeader>
+            Jese Leos<br />
+            name@example.com
+          </DropdownHeader>
+          <DropdownDivider />
+          <DropdownItem>Your Profile</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
+          <DropdownItem>Sign Out</DropdownItem>
+          <DropdownDivider />
+          <DropdownItem>Delete</DropdownItem>
+        </Dropdown>
       </template>
     </Navbar>
   `,
 });
 
 export const CTAButtonTemplate = (args, { argTypes }) => ({
-  components: { Navbar, Input, Button },
+  components: { Navbar, Input, Button, Dropdown, DropdownItem, DropdownDivider, DropdownHeader },
   props: Object.keys(argTypes),
   template: `
     <Navbar v-bind="$props">
@@ -133,16 +165,30 @@ export const CTAButtonTemplate = (args, { argTypes }) => ({
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
           <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
         </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
-        </svg>
+        <Dropdown :navmenu="true" listClassName="right-0 translate-y-[110%]">
+          <template slot="menu-content">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+            </svg>
+          </template>
+          <DropdownHeader>
+            Jese Leos<br />
+            name@example.com
+          </DropdownHeader>
+          <DropdownDivider />
+          <DropdownItem>Your Profile</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
+          <DropdownItem>Sign Out</DropdownItem>
+          <DropdownDivider />
+          <DropdownItem>Delete</DropdownItem>
+        </Dropdown>
       </template>
     </Navbar>
   `,
 });
 
 export const NavMenuTemplate = (args, { argTypes }) => ({
-  components: { Navbar, Input, Button },
+  components: { Navbar, Input, Button, Dropdown, DropdownItem, DropdownDivider },
   props: Object.keys(argTypes),
   template: `
     <Navbar v-bind="$props">
@@ -163,13 +209,20 @@ export const NavMenuTemplate = (args, { argTypes }) => ({
         </a>
       </template>
       <ul class="list-none hidden lg:flex flex-nowrap items-center gap-3">
-        <li class="text-orange2-500">Product</li>
-        <li>Use Cases</li>
-        <li>Pricing</li>
-        <li>Blog</li>
-        <li>Case Studies</li>
-        <li>Help</li>
-        <li>Contact</li>
+        <li class="text-orange2-500">
+          <Dropdown :navmenu="true" text="Dashboard" listClassName="left-0 translate-y-[112%]">
+            <DropdownItem>Html Templates</DropdownItem>
+            <DropdownItem>Ecommerce</DropdownItem>
+            <DropdownItem>Logo Design</DropdownItem>
+            <DropdownItem>Product Design</DropdownItem>
+            <DropdownDivider />
+            <DropdownItem>Database</DropdownItem>
+            <DropdownItem>Hosting</DropdownItem>
+          </Dropdown>
+        </li>
+        <li>Team</li>
+        <li>Services</li>
+        <li>Calendar</li>
       </ul>
       <Input className="mb-0" containerClassName="grow lg:grow-0" :show-icon="true" size="small" placeholder="Search...">
         <template slot="icon">
@@ -189,7 +242,7 @@ export const NavMenuTemplate = (args, { argTypes }) => ({
 });
 
 export const NavMenuCenterTemplate = (args, { argTypes }) => ({
-  components: { Navbar, Input, Button },
+  components: { Navbar, Input, Button, Dropdown, DropdownItem, DropdownDivider },
   props: Object.keys(argTypes),
   template: `
     <Navbar v-bind="$props" alignMenu="center">
@@ -210,13 +263,20 @@ export const NavMenuCenterTemplate = (args, { argTypes }) => ({
         </a>
       </template>
       <ul class="list-none hidden lg:flex flex-nowrap items-center gap-3">
-        <li class="text-orange2-500">Product</li>
-        <li>Use Cases</li>
-        <li>Pricing</li>
-        <li>Blog</li>
-        <li>Case Studies</li>
-        <li>Help</li>
-        <li>Contact</li>
+        <li class="text-orange2-500">
+          <Dropdown :navmenu="true" text="Dashboard" listClassName="left-1/2 -translate-x-1/2 translate-y-[112%]">
+            <DropdownItem>Html Templates</DropdownItem>
+            <DropdownItem>Ecommerce</DropdownItem>
+            <DropdownItem>Logo Design</DropdownItem>
+            <DropdownItem>Product Design</DropdownItem>
+            <DropdownDivider />
+            <DropdownItem>Database</DropdownItem>
+            <DropdownItem>Hosting</DropdownItem>
+          </Dropdown>
+        </li>
+        <li>Team</li>
+        <li>Services</li>
+        <li>Calendar</li>
       </ul>
       <svg xmlns="http://www.w3.org/2000/svg" class="block lg:hidden shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
