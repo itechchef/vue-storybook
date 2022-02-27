@@ -42,13 +42,22 @@ export default {
      */
     color: {
       type: String,
-      default: "black",
+      default: "primary",
       validator: function (value) {
         return (
           [
+            "primary",
             "white",
             "dark",
             "black",
+            "danger",
+            "success",
+            "warning",
+            "orange2",
+            "blue2",
+            "magenta",
+            "purple",
+            "gray",
           ].indexOf(value) !== -1
         );
       },
@@ -93,7 +102,7 @@ export default {
       let classes = {
         "text-base text-center font-inter font-medium border py-2 px-3 rounded-lg": true,
         "text-white bg-black focus:ring-cool-gray-400 border-black": this.color === "black",
-        "text-white hover:text-white focus:text-white bg-blue-600 hover:bg-blue-700 focus:bg-blue-600 focus:ring-blue-300 border-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800":
+        "text-white hover:text-white focus:text-white bg-blue-500 hover:bg-blue-600 focus:bg-blue-500 focus:ring-blue-300 border-blue-500 dark:bg-blue-500 dark:hover:bg-blue-700 dark:focus:ring-blue-800":
           this.color === "primary",
         "text-cool-gray-700 hover:text-cool-gray-700 focus:text-cool-gray-700 bg-cool-gray-200 hover:bg-cool-gray-300 focus:bg-cool-gray-200 focus:ring-cool-gray-100 border-cool-gray-700 dark:bg-cool-gray-200 dark:hover:bg-cool-gray-300 dark:focus:ring-cool-gray-100":
           this.color === "gray",

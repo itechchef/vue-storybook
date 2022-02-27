@@ -118,7 +118,7 @@ export default {
     },
     labelClasses() {
       return {
-        "block text-sm font-medium text-cool-gray-900 dark:text-cool-gray-300 mb-2": true,
+        "block text-sm font-medium text-cool-gray-900 dark:text-white mb-2": true,
       };
     },
     descriptionClasses() {

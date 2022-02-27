@@ -71,7 +71,7 @@ export const LanguageTemplate = (args, { argTypes }) => ({
         :options="optionItems"
         v-model="selectedValue"
       />
-      The selected option : {{ optionItems.find(item => item.value == selectedValue) ? optionItems.find(item => item.value == selectedValue).label : '' }} 
+      <span class="dark:text-white">The selected option : {{ optionItems.find(item => item.value == selectedValue) ? optionItems.find(item => item.value == selectedValue).label : '' }}</span>
     </div>
   `,
 });

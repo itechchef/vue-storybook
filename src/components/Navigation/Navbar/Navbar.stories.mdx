@@ -179,8 +179,8 @@ export const NavMenuTemplate = (args, { argTypes }) => ({
         </a>
       </template>
       <ul class="list-none hidden lg:flex flex-nowrap items-center gap-3">
-        <li class="text-orange2-500">
-          <Dropdown :navmenu="true" text="Dashboard" listClassName="left-0 translate-y-[112%]">
+        <li>
+          <Dropdown :navmenu="true" text="Dashboard" className="text-orange2-500 dark:text-blue-500" listClassName="left-0 translate-y-[112%]">
             <DropdownItem>Html Templates</DropdownItem>
             <DropdownItem>Ecommerce</DropdownItem>
             <DropdownItem>Logo Design</DropdownItem>
@@ -223,8 +223,8 @@ export const NavMenuCenterTemplate = (args, { argTypes }) => ({
         </a>
       </template>
       <ul class="list-none hidden lg:flex flex-nowrap items-center gap-3">
-        <li class="text-orange2-500">
-          <Dropdown :navmenu="true" text="Dashboard" listClassName="left-1/2 -translate-x-1/2 translate-y-[112%]">
+        <li>
+          <Dropdown :navmenu="true" text="Dashboard" className="text-orange2-500 dark:text-blue-500" listClassName="left-1/2 -translate-x-1/2 translate-y-[112%]">
             <DropdownItem>Html Templates</DropdownItem>
             <DropdownItem>Ecommerce</DropdownItem>
             <DropdownItem>Logo Design</DropdownItem>

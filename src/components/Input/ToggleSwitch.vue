@@ -63,8 +63,8 @@ export default {
     },
     backgroundClass() {
       let classes = {
-        "background relative w-11 h-6 bg-cool-gray-200 rounded-full border border-cool-gray-200 dark:bg-gray-700 dark:border-gray-600": true,
-        "bg-blue-700": this.state,
+        "background relative w-11 h-6 bg-cool-gray-200 rounded-full border border-cool-gray-200 dark:bg-gray-600 dark:border-gray-600": true,
+        "bg-blue-700 dark:bg-blue-700": this.state,
         "cursor-not-allowed": this.disabled || this.readonly,
       }
 
@@ -80,7 +80,7 @@ export default {
       let classes = {
         "absolute w-4 h-4 rounded-full bg-white top-1/2 -translate-y-1/2 transition-all duration-500": true,
         "right-0.5": this.state,
-        "left-0.5": !this.state,
+        "left-0.5 dark:bg-cool-gray-400": !this.state,
       }
 
       if (typeof this.switchClassName === "string") {

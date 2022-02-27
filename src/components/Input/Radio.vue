@@ -97,7 +97,7 @@ export default {
 }
 
 .mark {
-  @apply absolute top-1/2 left-0 -translate-y-1/2 flex items-center justify-center rounded-full overflow-hidden bg-cool-gray-50 border border-cool-gray-300 dark:bg-cool-gray-900 dark:border-cool-gray-600;
+  @apply absolute top-1/2 left-0 -translate-y-1/2 flex items-center justify-center rounded-full overflow-hidden bg-cool-gray-50 border border-cool-gray-300 dark:bg-cool-gray-700 dark:border-cool-gray-600;
 }
 
 .mark-icon {
