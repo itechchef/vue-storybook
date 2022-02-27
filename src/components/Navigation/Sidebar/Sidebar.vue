@@ -59,10 +59,10 @@ export default {
   computed: {
     sidebarClass() {
       let classes = {
-        "text-white w-64 p-2 min-h-screen h-full flex flex-col justify-between": true,
-        "!text-cool-gray-900 bg-white border-r border-cool-gray-300": this.color === "white",
-        "bg-cool-gray-800": this.color === "dark",
-        "!text-cool-gray-900 bg-cool-gray-100": this.color === "gray",
+        "text-cool-gray-900 bg-white w-64 p-2 min-h-screen h-full flex flex-col justify-between dark:bg-cool-gray-800 dark:text-white dark:border-cool-gray-900": true,
+        "text-cool-gray-900 bg-white border-r border-cool-gray-300": this.color === "white",
+        "text-white bg-cool-gray-800": this.color === "dark",
+        "text-cool-gray-900 bg-cool-gray-100": this.color === "gray",
         "bg-blue-700": this.color === "primary",
         "bg-blue2-600": this.color === "blue2",
         "bg-purple-700": this.color === "purple",

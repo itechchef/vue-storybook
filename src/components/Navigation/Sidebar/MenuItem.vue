@@ -143,7 +143,7 @@ export default {
 }
 
 .gray .bg-active {
-  @apply bg-cool-gray-200;
+  @apply bg-cool-gray-200 dark:bg-cool-gray-700;
 }
 
 .gray.collapsed .bg-active::before {
