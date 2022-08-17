@@ -3,8 +3,8 @@ import { addons } from "@storybook/addons";
 
 addons.setConfig({
   theme: create({
-    brandTitle: "Stylebase1",
-    brandUrl: "https://stylebase.ai",
+    brandTitle: "Storybook",
+    brandUrl: "https://storybook.js.org/",
     brandImage: "/logo.png",
   })
 });
